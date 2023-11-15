@@ -1,6 +1,7 @@
 package com.example.demo.control;
 
 import com.example.demo.utils.StringUtils;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-    @Autowired
+    @Resource
     StringUtils stringUtils;
 
     @GetMapping("/api/sayHello")
