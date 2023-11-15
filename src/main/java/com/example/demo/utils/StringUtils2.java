@@ -1,9 +1,9 @@
 package com.example.demo.utils;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component // 组件
-public class StringUtils {
+@Service // 服务
+public class StringUtils2 {
     public String concat(String str1, String str2){
         return str1 + str2;
     }

@@ -7,10 +7,4 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-
-    @Bean
-    public StringUtils stringUtils(){
-        return new StringUtils("xxx");
-    }
-
 }
