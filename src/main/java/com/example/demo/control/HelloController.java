@@ -1,5 +1,7 @@
 package com.example.demo.control;
 
+import com.example.demo.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+    @Autowired
+    StringUtils stringUtils;
+
     @GetMapping("/api/sayHello")
     public String say(String name, String age){
-        String text = name +" "+ age;
-        return "Hello world, "+ text;
+        return stringUtils.concat(name,age);
     }
 
     @PostMapping("/api/sayHello")
