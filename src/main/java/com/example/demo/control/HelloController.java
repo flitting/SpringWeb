@@ -1,11 +1,14 @@
 package com.example.demo.control;
 
 import com.example.demo.utils.StringUtils;
+import domain.JsonResp;
+import domain.Person;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,10 +23,14 @@ public class HelloController implements EnvironmentAware {
     @Value("${person.prefix:Hi}")
     String prefix;
     @GetMapping("/api/sayHello")
-    public String say(String name, String age){
-        String department = environment.getProperty("person.department.name","default");
-        return prefix + department + stringUtils.concat(name,age);
-
+    public JsonResp<Person> say(String name, int age){
+        Person person = new Person(name,age);
+        JsonResp<Person> result = JsonResp.builder(Person.class)
+                .ok()
+                .message("OK")
+                .data(person)
+                .build();
+        return result;
     }
 
     @PostMapping("/api/sayHello")
