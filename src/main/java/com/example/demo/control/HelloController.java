@@ -1,5 +1,7 @@
 package com.example.demo.control;
 
+import com.example.demo.domain.JsonResp;
+import com.example.demo.domain.Person;
 import com.example.demo.utils.StringUtils;
 import com.example.demo.utils.StringUtils2;
 import jakarta.annotation.Resource;
@@ -32,10 +34,14 @@ public class HelloController implements EnvironmentAware {
     String prefix;
 
     @GetMapping("/api/sayHello")
-    public String say(String name, String age) {
-        String department = environment.getProperty("person.department.name", "default");
-        System.out.println(department);
-        return prefix + name + age;
+    public JsonResp<Person> say(String name, int age) {
+        Person person = new Person(name, age);
+        JsonResp<Person> result = JsonResp.builder(Person.class)
+                .ok()
+                .message("OK")
+                .data(person)
+                .build();
+        return result;
     }
 
     @PostMapping("/api/sayHello")
