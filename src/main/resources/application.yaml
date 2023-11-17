@@ -2,3 +2,8 @@ person:
   prefix: Hello world
   department:
     name: google
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
