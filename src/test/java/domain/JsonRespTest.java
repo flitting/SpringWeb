@@ -1,16 +1,16 @@
 package domain;
 
+import com.example.demo.domain.JsonResp;
+import com.example.demo.domain.Person;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class JsonRespTest {
     @Test
     void test() throws JsonProcessingException {
         Person person= new Person("xiaoming",18);
-        JsonResp<Person> jsonResp = JsonResp.builder(Person.class)
+        JsonResp<Person> jsonResp = new JsonResp.Builder<Person>()
                 .ok()
                 .message("OK")
                 .data(person)

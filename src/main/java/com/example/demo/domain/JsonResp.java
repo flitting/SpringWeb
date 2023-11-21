@@ -1,4 +1,4 @@
-package domain;
+package com.example.demo.domain;
 
 import org.springframework.http.HttpStatus;
 
@@ -40,12 +40,11 @@ public class JsonResp<T> implements Serializable {
             return new JsonResp<T>(this);
         }
     }
-    public static JsonResp.Builder builder(){
-        return new JsonResp.Builder();
+
+    public JsonResp(){
+
     }
-    public static <V> JsonResp.Builder<V> builder(Class<? extends V> clazz){
-        return new JsonResp.Builder<V>();
-    }
+
     private JsonResp(Builder<T> builder){
         this.status = builder.status;
         this.message = builder.message;
