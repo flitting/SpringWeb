@@ -52,14 +52,8 @@ public class JsonResp<T> implements Serializable {
         }
     }
 
-    // 泛型擦除， 此时的T是Object类型
-    public static JsonResp.Builder builder() {
-        return new JsonResp.Builder();
-    }
+    public JsonResp(){
 
-    // 有泛型。V类型的Builder
-    public static <V> JsonResp.Builder<V> builder(Class<? extends V> clazz) {
-        return new JsonResp.Builder<V>();
     }
 
     private JsonResp(Builder<T> builder) {

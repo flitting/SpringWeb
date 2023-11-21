@@ -36,7 +36,7 @@ public class HelloController implements EnvironmentAware {
     @GetMapping("/api/sayHello")
     public JsonResp<Person> say(String name, int age) {
         Person person = new Person(name, age);
-        JsonResp<Person> result = JsonResp.builder(Person.class)
+        JsonResp<Person> result = new JsonResp.Builder<Person>()
                 .ok()
                 .message("OK")
                 .data(person)
