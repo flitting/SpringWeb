@@ -7,3 +7,9 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_db
+    username: exia
+    password: exia
+    driver-class-name: com.mysql.cj.jdbc.Driver
