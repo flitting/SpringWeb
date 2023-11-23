@@ -14,7 +14,7 @@
         delete from t_book where id=#{id}
     </delete>
     <select id="findAll" resultType="com.example.demo.domain.Book">
-        select id, name, author from t_book;
+        select id, name, author from t_book
     </select>
     <select id="findByName" resultType="com.example.demo.domain.Book">
         select id, name, author from t_book where name=#{name}
