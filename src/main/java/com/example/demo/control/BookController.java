@@ -49,7 +49,7 @@ public class BookController {
         PageInfo<Book> result = objects.convert(item -> (Book)item);
         return new JsonResp.Builder<PageInfo<Book>>()
                 .ok()
-                .message()
+                .message("OK")
                 .data(result)
                 .build();
     }
